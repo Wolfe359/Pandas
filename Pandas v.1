@@ -1,0 +1,27 @@
+import pandas as pd
+data = {
+  'index #':[1,2,3,],
+  'Username': ['Jim', 'Jimbo', 'Josh'],
+  'Password': ['123', 'abc', 'ghg']
+}
+user_amount=3
+user_info = pd.DataFrame(data, index = [1, 2, 3,])
+user_info.drop_duplicates(inplace=True, keep=False)
+let = user_info.var()
+x=input('What is your username? ')
+y=input('What is your password? ')
+z=0
+condition1 = (user_info['index #'] == z) & (user_info['Username'] == x)
+condition2 = (user_info['index #'] == z) & (user_info['Password'] == y)
+def login(x,y,z, user_amount, condition1, condition2):
+  while True:
+    if condition1.bool()==True & condition2.bool()==True:
+        print("you have succesfully logged in")
+        break
+    else:
+        z=z+1
+        continue
+        if z >= user_amount:
+          print('there was an issue with your login.')
+          break
+login(x,y,z, user_info, condition1, condition2)
